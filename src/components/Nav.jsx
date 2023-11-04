@@ -3,7 +3,7 @@ import { Form, NavLink } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/24/solid'
 
 
-const Nav = (userName) => {
+const Nav = ({userName}) => {
     return (
         <nav>
             <NavLink to='/'>

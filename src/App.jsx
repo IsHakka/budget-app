@@ -1,11 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard, { dashboardLoader } from "./pages/Dashboard";
+import Dashboard, { dashboardAction, dashboardLoader } from "./pages/Dashboard";
 import Main from "./pages/Main";
 import Error from "./pages/Error";
 import { mainLoader } from "./pages/Main";
 import { logoutAction } from "./acrtions/Logout";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-const router = createBrowserRouter([
+
+const router =  createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
@@ -16,6 +19,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Dashboard></Dashboard>,
         loader: dashboardLoader,
+        action: dashboardAction,
         errorElement: <Error></Error>
       }, {
         path: '/logout',
@@ -33,6 +37,7 @@ function App() {
       <RouterProvider
         router={router}
       />
+      <ToastContainer></ToastContainer>
     </div>
   )
 }
