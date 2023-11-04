@@ -18,6 +18,7 @@ const Intro = () => {
                         required
                         placeholder="請輸入您的姓名"
                         autoComplete="given-name" />
+                    <input type="hidden" name="_action" value='newUser'/>
                     <button type="submit" className="btn btn--dark">
                         <span>建立帳戶</span>
                         <UserPlusIcon width={20}></UserPlusIcon>
