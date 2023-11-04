@@ -1,16 +1,27 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard, { dashboardLoader } from "./pages/Dashboard";
+import Main from "./pages/Main";
 import Error from "./pages/Error";
+import { mainLoader } from "./pages/Main";
+import { logoutAction } from "./acrtions/Logout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard></Dashboard>,
-    loader: dashboardLoader
-  },
-  {
-    path: "*",
-    element: <Error></Error>
+    element: <Main></Main>,
+    loader: mainLoader,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard></Dashboard>,
+        loader: dashboardLoader,
+        errorElement: <Error></Error>
+      }, {
+        path: '/logout',
+        action: logoutAction
+      }
+    ]
   }
 ]);
 
