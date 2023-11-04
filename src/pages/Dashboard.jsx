@@ -1,17 +1,10 @@
-// rrd imports
 import { Link, useLoaderData } from "react-router-dom";
-
-// library imports
 import { toast } from "react-toastify";
-
-// components
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
 import Table from "../components/Table";
-
-//  helper functions
 import {
   createBudget,
   createExpense,
@@ -28,14 +21,14 @@ export function dashboardLoader() {
   return { userName, budgets, expenses };
 }
 
-// action
+// 執行
 export async function dashboardAction({ request }) {
   await waait();
 
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);
 
-  // new user submission
+  // 新用戶提交
   if (_action === "newUser") {
     try {
       localStorage.setItem("userName", JSON.stringify(values.userName));

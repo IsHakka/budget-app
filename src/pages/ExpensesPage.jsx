@@ -1,22 +1,15 @@
-// rrd imports
 import { useLoaderData } from "react-router-dom";
-
-// library import
 import { toast } from "react-toastify";
-
-// component imports
 import Table from "../components/Table";
-
-// helpers
 import { deleteItem, fetchData } from "../helpers";
 
-// loader
+// loader時
 export async function expensesLoader() {
   const expenses = fetchData("expenses");
   return { expenses };
 }
 
-// action
+// 執行
 export async function expensesAction({ request }) {
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);

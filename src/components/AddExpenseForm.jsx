@@ -19,10 +19,7 @@ const AddExpenseForm = ({ budgets }) => {
 
   return (
     <div className="form-wrapper">
-      <h2 className="h3">新增<span className="accent">
-        {budgets.length === 1 && `${budgets.map((budg) => budg.name)}`}
-      </span>
-        支出
+      <h2 className="h3">新增支出
       </h2>
       <fetcher.Form
         method="post"
