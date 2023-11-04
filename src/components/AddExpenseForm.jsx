@@ -1,10 +1,5 @@
-// react imports
 import { useEffect, useRef } from "react"
-
-// rrd imports
 import { useFetcher } from "react-router-dom"
-
-// library imports
 import { PlusCircleIcon } from "@heroicons/react/24/solid"
 
 const AddExpenseForm = ({ budgets }) => {
@@ -16,9 +11,7 @@ const AddExpenseForm = ({ budgets }) => {
 
   useEffect(() => {
     if (!isSubmitting) {
-      // clear form
       formRef.current.reset()
-      // reset focus
       focusRef.current.focus()
     }
 
@@ -26,10 +19,10 @@ const AddExpenseForm = ({ budgets }) => {
 
   return (
     <div className="form-wrapper">
-      <h2 className="h3">Add New{" "}<span className="accent">
+      <h2 className="h3">新增<span className="accent">
         {budgets.length === 1 && `${budgets.map((budg) => budg.name)}`}
-      </span>{" "}
-        Expense
+      </span>
+        支出
       </h2>
       <fetcher.Form
         method="post"
@@ -38,31 +31,31 @@ const AddExpenseForm = ({ budgets }) => {
       >
         <div className="expense-inputs">
           <div className="grid-xs">
-            <label htmlFor="newExpense">Expense Name</label>
+            <label htmlFor="newExpense">支出名稱</label>
             <input
               type="text"
               name="newExpense"
               id="newExpense"
-              placeholder="e.g., Coffee"
+              placeholder="請輸入支出名稱"
               ref={focusRef}
               required
             />
           </div>
           <div className="grid-xs">
-            <label htmlFor="newExpenseAmount">Amount</label>
+            <label htmlFor="newExpenseAmount">金額</label>
             <input
               type="number"
-              step="0.01"
+              step="10"
               inputMode="decimal"
               name="newExpenseAmount"
               id="newExpenseAmount"
-              placeholder="e.g., 3.50"
+              placeholder="請輸入金額"
               required
             />
           </div>
         </div>
         <div className="grid-xs" hidden={budgets.length === 1}>
-          <label htmlFor="newExpenseBudget">Budget Category</label>
+          <label htmlFor="newExpenseBudget">生活費(由此扣除)</label>
           <select name="newExpenseBudget" id="newExpenseBudget" required>
             {
               budgets
@@ -80,9 +73,9 @@ const AddExpenseForm = ({ budgets }) => {
         <input type="hidden" name="_action" value="createExpense" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {
-            isSubmitting ? <span>Submitting…</span> : (
+            isSubmitting ? <span>建立中...</span> : (
               <>
-                <span>Add Expense</span>
+                <span>新增</span>
                 <PlusCircleIcon width={20} />
               </>
             )
