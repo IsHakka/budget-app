@@ -13,7 +13,7 @@ export async function logoutAction() {
   deleteItem({
     key: "expenses"
   })
-  toast.success("刪除成功")
+  toast.success("您已登出")
   // 回主頁
   return redirect("/")
 }
