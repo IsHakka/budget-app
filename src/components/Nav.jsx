@@ -8,7 +8,7 @@ const Nav = ({ userName }) => {
         to="/"
       >
         <img src={logomark} alt="" height={30} />
-        <span>喵! 外租族費用管理</span>
+        <span>外租族費用管理</span>
       </NavLink>
       {
         userName && (
