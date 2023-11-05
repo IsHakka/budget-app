@@ -16,7 +16,7 @@ const Nav = ({ userName }) => {
             method="post"
             action="logout"
             onSubmit={(event) => {
-              if (!confirm("Delete user and all data?")) {
+              if (!confirm("登出後資料無法保存，您確定要登出嗎?")) {
                 event.preventDefault()
               }
             }}
